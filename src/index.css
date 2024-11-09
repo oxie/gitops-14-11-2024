@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --animation-timing: 300ms;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-slate-900 text-white antialiased overflow-x-hidden font-sans;
+  }
+
+  #root {
+    @apply overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply relative bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+           hover:border-gold-500/50 transition-all duration-500
+           hover:shadow-[0_0_30px_rgba(250,189,0,0.15)]
+           hover:bg-slate-800/40;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 
+           bg-clip-text text-transparent;
+  }
+
+  .section-container {
+    @apply container mx-auto px-4 sm:px-6 relative z-10;
+  }
+
+  .section-title {
+    @apply flex justify-center items-center mb-6 sm:mb-12 px-4;
+  }
+
+  .section-title-wrapper {
+    @apply relative inline-flex flex-col sm:flex-row items-center bg-slate-800/50 backdrop-blur-xl
+           px-4 py-3 sm:px-8 sm:py-6 rounded-xl border border-slate-700/50 
+           shadow-lg hover:border-gold-500/30 hover:bg-slate-800/60
+           transition-all duration-300 w-full sm:w-auto
+           hover:shadow-[0_0_30px_rgba(250,189,0,0.15)]
+           max-w-[calc(100vw-2rem)] sm:max-w-none;
+  }
+
+  .section-title-icon {
+    @apply flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12
+           bg-gradient-to-br from-gold-500/10 to-gold-600/10
+           rounded-lg border border-gold-500/20 mb-2 sm:mb-0 sm:mr-6
+           transition-all duration-300 group-hover:scale-110
+           shrink-0;
+  }
+
+  .section-title-text {
+    @apply text-xl sm:text-4xl md:text-5xl font-bold tracking-tight
+           bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600
+           bg-clip-text text-transparent leading-tight sm:leading-relaxed
+           py-1 sm:py-2 text-center sm:text-left;
+  }
+
+  .section-description {
+    @apply text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed 
+           mt-4 sm:mt-6 px-4 text-center;
+  }
+
+  /* Technology Stack Card Styles */
+  .tech-card {
+    @apply relative bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+           rounded-lg transition-all duration-500;
+  }
+
+  .tech-card-hover {
+    @apply hover:border-gold-500/30 hover:shadow-[0_0_30px_rgba(250,189,0,0.1)];
+  }
+
+  .tech-card-gradient {
+    @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-500;
+  }
+
+  .tech-card-gradient-border {
+    @apply absolute bg-gradient-to-r from-transparent via-gold-500/30 to-transparent;
+  }
+
+  .tech-card-glow {
+    @apply absolute w-2 h-2 bg-gold-400/0 rounded-full blur-sm transition-all duration-500;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(250, 189, 0, 0.5);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgb(250, 189, 0, 0.2),
+                0 0 20px rgb(250, 189, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgb(250, 189, 0, 0.4),
+                0 0 40px rgb(250, 189, 0, 0.2);
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes scan {
+  0% { background-position: 0 -100vh; }
+  100% { background-position: 0 100vh; }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
